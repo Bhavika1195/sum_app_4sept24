@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<title>sum Finder App</title>
+		<style>
+			*{font-size:60px;}
+			body{background-color:linen;}
+		</style>
+	</head>
+	<body>
+	<center>
+	<h1>sum Finder App</h1>
+	<form onsubmit="sum()">
+		<input type="number" step="any" id="num" placeholder="enter positive integer"/>
+		<br/><br/>
+		<br/><br/>		
+		<input type="submit" value="M1"/>
+		<input type="submit" value="M2"/>
+		<input type="submit" value="M3"/>
+	</form>
+		<h2 id="msg"/>
+	
+	<script>
+		function sum()
+		{
+			event.preventDefault();
+			let num=document.getElementById("num");
+			let msg=document.getElementById("msg");
+			let action=document.activeElement.value;
+			
+			if(num.value==="")
+			{
+			alert("please enter first number");
+			msg.innerHTML="";
+			num.focus();
+			return;
+			}
+
+			let n=parseInt(num.value);
+
+			if(n<0)
+			{
+			alert("min integer should be 1");
+			msg.innerHTML="";
+			num.focus();
+			return;
+			}
+			
+			let ans="";			
+			if(action==="M1")
+			{
+			let i=0;sum=0;
+			while(i<=n)
+			{
+				sum=sum+i;
+				i++;
+			}
+			msg.innerHTML="sum1="+sum;
+			}
+			
+			else if(action==="M2")
+			{		
+			let i=1;sum=0;
+			do
+			{
+				sum=sum+i;
+				i++;
+			}while(i<=n);	
+			msg.innerHTML="sum2="+sum;
+			}
+
+			else if(action==="M3")
+			{	
+				let sum=0;
+				for(let i=1;i<=n;i++)
+				{
+				sum=sum+i;									}
+				msg.innerHTML="sum3="+sum;
+			}
+		}
+		
+	</script>
+	</center>
+	</body>	
+</html>
